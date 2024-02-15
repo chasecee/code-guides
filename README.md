@@ -1,4 +1,4 @@
-SSH Auto Login
+# SSH Auto Login
 
 1. Generate an SSH key pair on your local machine if you haven't already:
 
