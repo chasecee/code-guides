@@ -117,3 +117,48 @@ Test the commands from Home Assistant to ensure they work correctly.
 - Consider setting a static IP or using a hostname for your Raspberry Pi to ensure consistent access.
 
 This setup allows you to control your Raspberry Pi's screen power state remotely from Home Assistant, enhancing the automation capabilities of your smart home setup.
+
+- # Raspberry Pi Chromium Refresh
+
+### Step 1: Install xdotool
+
+1. **Install xdotool on Raspberry Pi** :
+
+- Open a terminal on your Raspberry Pi.
+- Run the following command to install `xdotool`:
+
+```bash
+sudo apt-get install xdotool
+```
+
+### Step 2: Create a Refresh Script
+
+1. **Create the Refresh Script** :
+
+- Create a new script called `refresh_chromium.sh`.
+- Add commands to find the Chromium window and send the refresh key (F5).
+- Here’s how to write and make the script executable:
+
+```bash
+echo -e '#!/bin/bash\nexport DISPLAY=:0\nWID=$(xdotool search --onlyvisible --class chromium | head -1)\nxdotool windowactivate $WID\nxdotool key F5' > /home/pi/scripts/refresh_chromium.sh
+chmod +x /home/pi/scripts/refresh_chromium.sh
+```
+
+### Step 3: Test the Script
+
+1. **Test the Refresh Script** :
+
+- Ensure Chromium is running with the webpage you want to refresh.
+- Run the script:
+
+```bash
+/home/pi/scripts/refresh_chromium.sh
+```
+
+- This should bring Chromium to the foreground and simulate pressing the F5 key, refreshing the page.
+
+### Additional Notes
+
+- The `xdotool` command relies on the X server (graphical interface), so this script needs to be run in a graphical session.
+- If you have multiple Chromium windows open, the script will target the first one it finds. Adjust the script as needed if you're working with multiple windows or specific window instances.
+- You can use this script in combination with cron jobs or other automation tools to schedule regular page refreshes.
