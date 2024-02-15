@@ -20,7 +20,7 @@ ssh user@remote_host
 
 Make sure your remote server allows SSH key authentication. If it doesn't work, check the server's SSH config file (`/etc/ssh/sshd_config`) and ensure that `PubkeyAuthentication` is set to `yes`.
 
-- # Raspberry Pi Screen Control via Home Assistant README
+# Raspberry Pi Screen Control via Home Assistant README
 
 This guide details the process of setting up a Raspberry Pi to allow Home Assistant to automatically execute scripts to wake and sleep the screen via SSH.
 
@@ -118,7 +118,7 @@ Test the commands from Home Assistant to ensure they work correctly.
 
 This setup allows you to control your Raspberry Pi's screen power state remotely from Home Assistant, enhancing the automation capabilities of your smart home setup.
 
-- # Raspberry Pi Chromium Refresh
+# Raspberry Pi Chromium Refresh
 
 ### Step 1: Install xdotool
 
